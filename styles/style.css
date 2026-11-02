@@ -1,0 +1,538 @@
+
+/*****************************/
+/* CSS REMEDY */
+/*****************************/
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+
+/*****************************/
+/* CUSTOM PROPERTIES */
+/*****************************/
+
+:root {
+    --text-main: #1d1d1f;
+    --text-sub: #05052c;
+    --font-scale: 1;
+    --background-color: #dedede;
+    --text-color: #1d1d1f;
+    --accent-color: #a8a6a6;
+}
+
+
+/*****************************/
+/* ALGEMENE STYLING */
+/*****************************/
+
+body {
+    margin: 0;
+    font-size: calc(1rem * var(--font-scale));
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+        "SF Pro Text", sans-serif;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+    background-color: var(--background-color);
+}
+
+
+/*****************************/
+/* RESPONSIVE GRID */
+/*****************************/
+
+@media (min-width: 600px) {
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    section ul li {
+        flex-basis: 280px;
+    }
+}
+
+section:nth-child(-n+3) {
+    grid-column: 1 / -1;
+}
+
+
+/*****************************/
+/* TOEGANKELIJKHEID */
+/*****************************/
+
+.visually-hidden,
+.skip-link,
+footer h3 {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+a:focus {
+    outline: 2px solid palevioletred;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::after,
+    *::before {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/*****************************/
+/* HEADER */
+/*****************************/
+
+header:first-of-type {
+    background-color: rgba(241, 241, 241, 0.992);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    height: 50px;
+    z-index: 1000;
+}
+
+header:first-of-type ul {
+    display: flex;
+    gap: 3em;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+header a {
+    background-color: transparent;
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+header a:hover {
+    color: rgb(183, 84, 186);
+}
+
+header a:active {
+    color: deeppink;
+}
+
+header ul li:nth-of-type(1),
+header ul li:nth-of-type(4),
+header ul li:nth-of-type(5) {
+    background: hsla(240, 23%, 68%, 0.078);
+}
+
+header ul li:hover {
+    animation: scaleUpDown 0.8s ease-in-out;
+}
+
+header ul li:nth-of-type(1):hover {
+    animation: rotate3D 2s forwards;
+}
+
+header ul li:nth-of-type(1) a,
+header ul li:nth-of-type(4) a {
+    display: inline-block;
+}
+
+li {
+    list-style: none;
+}
+
+
+/*****************************/
+/* LINKS */
+/*****************************/
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+}
+
+section > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding: 0.2em 1em;
+    margin: 0.1em;
+    gap: 0.1em;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+}
+
+section > a:hover {
+    transform: scale(1.05);
+}
+
+section > a:active {
+    background-color: darkslateblue;
+}
+
+section > a:focus {
+    outline: 2px solid darkred;
+}
+
+a svg {
+    width: 24px;
+    margin-left: 0.5em;
+    stroke: currentColor;
+    transition: transform 0.3s ease;
+}
+
+a:hover svg {
+    transform: translateX(5px);
+}
+
+/*****************************/
+/* SECTIONS */
+/*****************************/
+
+section {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.8em;
+    color: var(--text-color);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s forwards;
+}
+
+section img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+section p {
+    color: #434242;
+}
+
+/*****************************/
+/* APPLE-STYLE SECTIONS */
+/*****************************/
+
+section:nth-of-type(1) {
+    background-color: #f5f5f7;
+}
+
+
+
+section:nth-of-type(3),
+section:nth-of-type(4),
+section:nth-of-type(7),
+section:nth- {
+    background-color: #f5f5f7;
+}
+
+section:nth-of-type(5) {
+    background-color: #000000;
+    color: #4f4d4d;
+}
+
+section:nth-of-type(6) {
+    background-color: #ffffff;
+}
+
+section:nth-of-type(1) h2 {
+    font-size: 2.5rem;
+}
+
+section:nth-of-type(1) p {
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+section:nth-of-type(4) img {
+    width: 60%;
+}
+
+section img {
+    border-radius: 4em;
+}
+
+
+/*****************************/
+/* HORIZONTALE UL */
+/*****************************/
+
+section ul {
+    display: flex;
+    gap: 1em;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 1em 0;
+    margin: 1em 0;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+}
+
+section ul li {
+    flex: 0 0 220px;
+    scroll-snap-align: start;
+    padding: 1em;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+section ul li img {
+    width: 70%;
+    height: auto;
+    display: block;
+    border-radius: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+
+/*****************************/
+/* SUMMARY */
+/*****************************/
+
+.summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3em;
+    padding: 3em;
+    text-align: left;
+    background-color: #f5f5f7;
+}
+
+.summary img {
+    width: 100%;
+    max-width: 500px;
+    order: 2;
+}
+
+.summary .summary-text {
+    order: 1;
+}
+
+@media (max-width: 600px) {
+    .summary {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 2em 1em;
+    }
+
+    .summary img {
+        order: 1;
+    }
+
+    .summary .summary-text {
+        order: 2;
+    }
+}
+
+
+/*****************************/
+/* FOOTER */
+/*****************************/
+
+footer {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+footer:first-of-type ul {
+    display: flex;
+    overflow-x: auto;
+    min-width: 100%;
+}
+
+footer:first-of-type ul li {
+    flex-shrink: 0;
+    flex-basis: 50%;
+}
+
+footer:first-of-type ul li img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/*****************************/
+/* HAMBURGER MENU */
+/*****************************/
+
+#burger-menu {
+    cursor: pointer;
+    height: 27px;
+    width: 27px;
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    overflow: visible;
+    z-index: 10001;
+}
+
+#burger-menu span,
+#burger-menu span::before,
+#burger-menu span::after {
+    background: #4b4286;
+    display: block;
+    height: 2px;
+    position: absolute;
+    transition: 0.3s ease-in-out;
+    content: "";
+}
+
+#burger-menu span {
+    top: 13px;
+    right: 0;
+    width: 27px;
+}
+
+#burger-menu span::before {
+    top: -10px;
+    left: 0;
+    width: 27px;
+}
+
+#burger-menu span::after {
+    top: 10px;
+    left: 0;
+    width: 27px;
+}
+
+
+/* Hamburger animatie */
+
+#burger-menu.close span::before {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+#burger-menu.close span {
+    transform: rotate(-45deg);
+}
+
+#burger-menu.close span::after {
+    top: 0;
+    left: 0;
+    width: 0;
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+
+/*****************************/
+/* MENU OVERLAY */
+/*****************************/
+
+#menu {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 0;
+    z-index: 10000;
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+    padding-top: 20px;
+    background: #f5f5f7;
+    transition: all 0.3s ease-in-out;
+}
+
+#menu.overlay {
+    height: 100vh;
+    visibility: visible;
+    opacity: 1;
+    padding-top: 100px;
+}
+
+#menu ul {
+    padding: 0;
+}
+
+#menu li {
+    list-style: none;
+}
+
+#menu a {
+    display: block;
+    color: #000000;
+    font-size: 25px;
+    margin-bottom: 30px;
+    text-decoration: none;
+}
+
+
+/*****************************/
+/* EXTRA JAVASCRIPT STYLING */
+/*****************************/
+
+p.anders {
+    background-color: darkorchid;
+    border-radius: 0.5em;
+}
+
+
+/*****************************/
+/* ANIMATIONS */
+/*****************************/
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate3D {
+    0% {
+        transform: rotate3d(0, 0, 0, 0deg);
+    }
+
+    100% {
+        transform: rotate3d(1, 1, 1, 360deg);
+    }
+}
+
+@keyframes scaleUpDown {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
